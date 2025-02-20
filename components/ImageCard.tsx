@@ -5,6 +5,7 @@ import {
   StyleSheet,
   useColorScheme,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import { ThemedText } from "./ThemedText";
 import { Ionicons } from "@expo/vector-icons";
@@ -12,26 +13,28 @@ import { Colors } from "@/constants/Colors";
 
 export default function ImageCard({
   wallpaper,
-  setPictureOpen,
+  onPress,
 }: {
   wallpaper: Wallpaper;
-  setPictureOpen: (v: boolean) => void;
+  onPress: () => void;
 }) {
   const theme = useColorScheme() ?? "light";
   return (
-    <View>
-      <Image source={{ uri: wallpaper.url }} style={styles.image} />
-      <View style={styles.labelContainer}>
-        <ThemedText style={styles.label}>{wallpaper.name}</ThemedText>
-        <View style={styles.iconContainer}>
-          <Ionicons
-            name="heart"
-            size={18}
-            color={theme === "light" ? Colors.light.icon : Colors.dark.icon}
-          />
+    <Pressable onPress={onPress}>
+      <View>
+        <Image source={{ uri: wallpaper.url }} style={styles.image} />
+        <View style={styles.labelContainer}>
+          <ThemedText style={styles.label}>{wallpaper.name}</ThemedText>
+          <View style={styles.iconContainer}>
+            <Ionicons
+              name="heart"
+              size={18}
+              color={theme === "light" ? Colors.light.icon : Colors.dark.icon}
+            />
+          </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
