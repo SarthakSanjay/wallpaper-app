@@ -7,12 +7,22 @@ import {
   useSuggestedWallpaper,
   useWallpaper,
 } from "@/hooks/useWallpapers";
+import { Colors } from "@/constants/Colors";
+import { useColorScheme } from "react-native";
 
 const Tab = createMaterialTopTabNavigator();
 
 export default function Foryou() {
+  const theme = useColorScheme() ?? "light";
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: Colors[theme].tint,
+        tabBarStyle: {
+          backgroundColor: Colors[theme].background,
+        },
+      }}
+    >
       <Tab.Screen name="Library" component={Library}></Tab.Screen>
       <Tab.Screen name="Liked" component={Liked}></Tab.Screen>
       <Tab.Screen name="Suggested" component={Suggested}></Tab.Screen>
