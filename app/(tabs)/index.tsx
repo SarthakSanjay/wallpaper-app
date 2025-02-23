@@ -5,7 +5,6 @@ import {
   useLibraryWallpaper,
   useLikedWallpaper,
   useSuggestedWallpaper,
-  useWallpaper,
 } from "@/hooks/useWallpapers";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "react-native";
@@ -21,14 +20,16 @@ export default function Foryou() {
         tabBarStyle: {
           backgroundColor: Colors[theme].background,
         },
+        tabBarIndicatorStyle: {
+          height: 5,
+          borderRadius: 5,
+        },
       }}
     >
       <Tab.Screen name="Library" component={Library}></Tab.Screen>
       <Tab.Screen name="Liked" component={Liked}></Tab.Screen>
       <Tab.Screen name="Suggested" component={Suggested}></Tab.Screen>
     </Tab.Navigator>
-    // <ThemedSafeAreaView style={styles.container}>
-    // </ThemedSafeAreaView>
   );
 }
 
