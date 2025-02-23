@@ -20,8 +20,29 @@ export default function () {
       <ThemedView style={{ flex: 1 }}>
         <LoginButtons />
         <ThemeSelector />
+        <About />
       </ThemedView>
     </SafeAreaView>
+  );
+}
+
+function About() {
+  return (
+    <ThemedView style={styles.margin}>
+      <ThemedText style={styles.bigText}>Settings</ThemedText>
+      <ThemedView
+        style={{
+          flexDirection: "column",
+          justifyContent: "space-between",
+          gap: 5,
+        }}
+      >
+        <ThemedText>Account</ThemedText>
+        <ThemedText>Privacy Policy</ThemedText>
+        <ThemedText>Terms of Service</ThemedText>
+        <ThemedText>Lisenses</ThemedText>
+      </ThemedView>
+    </ThemedView>
   );
 }
 
@@ -29,7 +50,7 @@ function ThemeSelector() {
   return (
     <ThemedView style={styles.margin}>
       <ThemedText style={styles.bigText}>Settings</ThemedText>
-      <ThemedText>Themes</ThemedText>
+      <ThemedText style={{ marginVertical: 5 }}>Themes</ThemedText>
       <ThemedView
         style={{ flexDirection: "row", justifyContent: "space-between" }}
       >
@@ -70,7 +91,7 @@ function ThemedButton({
 
 function Header() {
   return (
-    <ThemedView style={styles.headerStyle}>
+    <ThemedView style={styles.margin}>
       <ThemedText style={styles.bigText}>Panels</ThemedText>
       <ThemedText>Sign In to save your data</ThemedText>
     </ThemedView>
